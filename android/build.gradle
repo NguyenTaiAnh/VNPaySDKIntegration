@@ -44,6 +44,9 @@ android {
 repositories {
     google()
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 
@@ -54,4 +57,11 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    // https://mvnrepository.com/artifact/com.google.android/android
+    compileOnly group: 'com.google.android', name: 'android', version: '4.1.1.4'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.1'
+    compile files('libs/merchant-1.0.25.aar')
+
 }

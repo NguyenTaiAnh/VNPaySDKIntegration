@@ -1,3 +1,4 @@
+import UIKit
 import Foundation
 import Capacitor
 
@@ -11,6 +12,10 @@ public class VNPayIntegratedPlugin: CAPPlugin {
 
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
+        DispatchQueue.main.async {
+            ViewController().openSDK(self: self.bridge.viewController)
+        }
+        
         call.resolve([
             "value": implementation.echo(value)
         ])
